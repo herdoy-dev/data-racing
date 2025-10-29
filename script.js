@@ -27,10 +27,13 @@ d3.csv(dataURL, d3.autoType).then((data) => {
     .map(([date, data]) => [new Date(date), data])
     .sort(([a], [b]) => d3.ascending(a, b));
 
+  const nameColorMap = new Map(data.map((d) => [d.name, d.color]));
+
   function rank(valueFunc) {
     const data = Array.from(names, (name) => ({
       name,
       value: valueFunc(name),
+      color: nameColorMap.get(name),
     }));
     data.sort((a, b) => d3.descending(a.value, b.value));
     for (let i = 0; i < data.length; ++i) data[i].rank = Math.min(n, i);
@@ -67,24 +70,12 @@ d3.csv(dataURL, d3.autoType).then((data) => {
 
   const y = d3
     .scaleBand()
-
     .domain(d3.range(n + 1))
-
     .rangeRound([margin.top, margin.top + barSize * (n + 1 + 0.1)])
     .padding(0.1);
 
-  let color;
+  const color = (d) => d.color;
 
-  const scale = d3.scaleOrdinal(d3.schemeTableau10);
-  if (data.some((d) => d.category !== undefined)) {
-    const categoryByName = new Map(data.map((d) => [d.name, d.category]));
-
-    scale.domain(categoryByName.values());
-
-    color = (d) => scale(categoryByName.get(d.name));
-  } else {
-    color = (d) => scale(d.name);
-  }
 
   function bars(svg) {
     let bar = svg.append("g").attr("fill-opacity", 0.6).selectAll("rect");
