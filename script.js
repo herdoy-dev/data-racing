@@ -8,7 +8,7 @@ const k = 10;
 
 const duration = 250;
 
-const dataURL = "./chart-data.csv";
+const dataURL = "./data.csv";
 
 d3.csv(dataURL, d3.autoType).then((data) => {
   console.log(data);
