@@ -1,40 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Browser Market Share Race</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="w-full h-screen m-0 p-0 overflow-hidden flex flex-col">
+  <head>
+    <meta charset="UTF-8" />
+    <title>D3-Bar-Chart-Race</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-    <!-- Tooltip Element -->
-    <div id="tooltip" class="tooltip"></div>
-
-    <div class="w-full flex-grow chart-container p-6 md:p-10">
-        <!-- Chart container (SVG will be injected here) -->
-        <div id="chart-area" class="relative w-full h-full">
-            <svg id="bar-chart" class="w-full h-full"></svg>
-            <!-- Year overlay for the "race" effect -->
-            <div id="year-overlay" class="absolute inset-0 flex items-center justify-end pr-4 md:pr-10">
-                <div id="current-year" class="text-right">1990</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="flex justify-center items-center p-4">
-        <button id="start-race" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 transform hover:scale-105">
-            Start Race
-        </button>
-        <button id="reset-race" class="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 transform hover:scale-105 ml-4">
-            Reset
-        </button>
-        <p id="status-message" class="text-sm text-gray-600 ml-4"></p>
-    </div>
-
-    <script src="app.js"></script>
-
-</body>
+  <body>
+    <div id="container"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.7.0/d3.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
 </html>
