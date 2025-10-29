@@ -1,0 +1,35 @@
+/* Custom font for a clean, modern look */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+/* Custom CSS for the chart container */
+.chart-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+/* Define a consistent transition for smooth animation */
+.bar {
+    transition: all 0.5s ease-in-out;
+}
+/* Style for the current year display */
+#current-year {
+    font-size: 12rem;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.05); /* Very light, watermark style */
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+}
+/* Basic tooltip styling */
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    pointer-events: none;
+    font-size: 0.875rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
